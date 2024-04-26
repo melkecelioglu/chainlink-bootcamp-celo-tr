@@ -152,9 +152,7 @@ Web3 örneğini oluşturun. RPC'yi bulabilirsiniz [Celo belgelerinde](https://do
 ```
 
 
-Kodunuz şimdi şö
-
-yle görünmelidir: 
+Kodunuz şimdi şöyle görünmelidir: 
 
 ```typescript
 // ERC20 abi 
@@ -545,4 +543,4 @@ Value] = useState("");
 }
 
 ```
-Başka sorularınız var mı?
+
