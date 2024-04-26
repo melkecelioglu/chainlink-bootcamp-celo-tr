@@ -40,16 +40,16 @@ npm run react-app:dev
 
 Ön uç şu adreste çalışmalıdır: `http://localhost:3000`.
 
-## Jeton Bakiyesini Alın
+## coin Bakiyesini Alın
 
-CELO jetonlarının bakiyesini okumak için önce bir miktar almanız gerekecek, bu yüzden [Celo Musluğu'na](https://faucet.celo.org/alfajores) gidin ve cüzdanınıza bir miktar alın. Geliştirme için özel bir cüzdan kullanmanızı her zaman öneririz, gerçek fon tutmayan bir cüzdan.
+CELO coinlarının bakiyesini okumak için önce bir miktar almanız gerekecek, bu yüzden [Celo Musluğu'na](https://faucet.celo.org/alfajores) gidin ve cüzdanınıza bir miktar alın. Geliştirme için özel bir cüzdan kullanmanızı her zaman öneririz, gerçek fon tutmayan bir cüzdan.
 
 `react-app` klasöründeki `index.tsx` dosyasında bazı şablon kodlar bulacaksınız. Kodumuzu buraya ekleyeceğiz.
 
-İlk olarak, CELO jetonlarının bakiyesini okumak istiyoruz.
+İlk olarak, CELO coinlarının bakiyesini okumak istiyoruz.
 
 
-1. Bunun için Alfajores'deki CELO adresini almalıyız. Adresleri [Celo belgelerinde](https://docs.celo.org/token-addresses) bulabilirsiniz. Veya [celoscan](https://celoscan.io/tokens)'deki en iyi ERC20 jetonlarını kontrol ederken bulabilirsiniz.
+1. Bunun için Alfajores'deki CELO adresini almalıyız. Adresleri [Celo belgelerinde](https://docs.celo.org/token-addresses) bulabilirsiniz. Veya [celoscan](https://celoscan.io/tokens)'deki en iyi ERC20 coinlarını kontrol ederken bulabilirsiniz.
 
 ```typescript
     const CELOTokenAddress = "0xF194afDf50B03e69Bd7D057c1Aa9e10c9954E4C9"; // CELO Testnet
@@ -98,7 +98,7 @@ Web3 örneğini oluşturun. RPC'yi bulabilirsiniz [Celo belgelerinde](https://do
     const getBalance = async () => {
         celoContract.methods.balanceOf(userAddress as `0x${string}`).call()
             .then(balance => {
-                // Bakiye Wei olarak döner, Ether'a (veya jetonun eşdeğeri) dönüştürün
+                // Bakiye Wei olarak döner, Ether'a (veya coinun eşdeğeri) dönüştürün
                 const tokenBalance = web3.utils.fromWei(balance, 'ether');
                 setCeloBalance((tokenBalance))
                 console.log(`Bakiye: ${tokenBalance}`);
@@ -127,7 +127,7 @@ Web3 örneğini oluşturun. RPC'yi bulabilirsiniz [Celo belgelerinde](https://do
     }, [address, isConnected, isMounted]);
 ```
 
-7. Kullanıcının mevcut CELO jetonlarının miktarını göstermek için HTML'ye bazı kodlar ekleyin
+7. Kullanıcının mevcut CELO coinlarının miktarını göstermek için HTML'ye bazı kodlar ekleyin
 
 ```typescript
     return (
@@ -163,7 +163,7 @@ export default function Home() {
     //  Viem'den bir ERC20 abi'sini alın
     import { erc20Abi } from "viem";
 
-    // CELO jeton adresi Alfajore Celo Testnet'te
+    // CELO coin adresi Alfajore Celo Testnet'te
     const CELOTokenAddress = "0xF194afDf50B03e69Bd7D057c1Aa9e10c9954E4C9"; 
 
     const web3 = new Web3("https://alfajores-forno.celo-testnet.org")
@@ -195,7 +195,7 @@ export default function Home() {
     const getBalance = async () => {
           celoContract.methods.balanceOf(userAddress as `0x${string}`).call()
             .then(balance => {
-                // Bakiye Wei olarak döner, Ether'a (veya jetonun eşdeğeri) dönüştürün
+                // Bakiye Wei olarak döner, Ether'a (veya coinun eşdeğeri) dönüştürün
                 const tokenBalance = web3.utils.fromWei(balance, 'ether');
                 setCeloBalance((tokenBalance))
                 console.log(`Bakiye: ${tokenBalance}`);
@@ -227,7 +227,7 @@ export default function Home() {
 }
 ```
 
-## CELO jetonlarının USD değerini alın
+## CELO coinlarının USD değerini alın
 
 Bu öğretici için [Chainlink belgelerindeki](https://docs.chain.link/data-feeds/using-data-feeds#reading-data-feeds-offchain) veri fiyatı beslemelerini okuma kılavuzunu takip edeceğiz.
 
@@ -500,7 +500,7 @@ Value] = useState("");
     const getBalance = async () => {
         celoContract.methods.balanceOf(userAddress as `0x${string}`).call()
             .then(balance => {
-                // Bakiye Wei olarak döner, Ether'a (veya jetonun eşdeğeri) dönüştürün
+                // Bakiye Wei olarak döner, Ether'a (veya coinun eşdeğeri) dönüştürün
                 const tokenBalance = web3.utils.fromWei(balance, 'ether');
                 setCeloBalance((tokenBalance))
                 console.log(`Bakiye: ${tokenBalance}`);
